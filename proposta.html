@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="style.css?v=5">
 <style>
   body{background:var(--paper)}
   .p-nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:rgba(250,247,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
@@ -98,7 +98,9 @@
   .vs p{font-size:15px;opacity:.85}
   .fine{list-style:none;margin-top:36px;font-size:14px;color:var(--walnut-2);display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
   .fine li{padding:10px 0;border-top:1px solid var(--line)}
+  .ctbl td small.n{display:block;font-size:12px;color:var(--muted);font-weight:400}
   @media (max-width:980px){.ctrl,.vs,.fine{grid-template-columns:1fr}.vs .big{font-size:46px}}
+  @media (max-width:600px){.ctrl{padding:20px 16px}.ctbl{min-width:0;font-size:13px}.ctbl td,.ctbl th{padding:10px 5px;white-space:normal}.ctbl th{font-size:28px}.ctbl th small,.ctbl td:first-child small{display:none}.ctbl .tot td{font-size:14px}.ctbl .tot.y td{font-size:19px}}
   @media (max-width:980px){.opts,.calc,.tldr,.check,.strat{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr;gap:20px}.warn li{grid-template-columns:1fr;gap:4px}}
   @media (max-width:600px){.p-nav{padding:12px 16px}.flow{grid-template-columns:1fr}}
 </style>
@@ -189,7 +191,7 @@
       <tbody>
         <tr><td><b lang="it">Nome del sito</b><b lang="pt">Nome do site</b><small lang="it">dominio .it, ~€15 l'anno</small><small lang="pt">domínio .it, ~€15 por ano</small></td><td data-c="dom"></td><td data-c="dom"></td><td data-c="dom"></td></tr>
         <tr><td><b lang="it">Hosting</b><b lang="pt">Hospedagem</b><small lang="it">dove "vive" il sito</small><small lang="pt">onde o site "mora"</small></td><td>€0</td><td>€0</td><td>€0</td></tr>
-        <tr><td><b lang="it">Pagamenti con carta</b><b lang="pt">Pagamentos com cartão</b><small lang="it">Stripe: 1,5% + €0,25 a pagamento</small><small lang="pt">Stripe: 1,5% + €0,25 por pagamento</small></td><td><span lang="it">€0 (bonifico)</span><span lang="pt">€0 (transferência)</span></td><td data-c="stripe"></td><td data-c="stripe"></td></tr>
+        <tr><td><b lang="it">Pagamenti con carta</b><b lang="pt">Pagamentos com cartão</b><small lang="it">Stripe: 1,5% + €0,25 a pagamento</small><small lang="pt">Stripe: 1,5% + €0,25 por pagamento</small></td><td>€0<small class="n" lang="it">bonifico</small><small class="n" lang="pt">transferência</small></td><td data-c="stripe"></td><td data-c="stripe"></td></tr>
         <tr><td><b lang="it">Programma di prenotazione</b><b lang="pt">Programa de reservas</b><small lang="it">Smoobu, 2 case, IVA esclusa</small><small lang="pt">Smoobu, 2 casas, sem IVA</small></td><td>€0</td><td>€0</td><td data-c="soft"></td></tr>
         <tr class="tot"><td lang="it">Totale al mese</td><td lang="pt">Total por mês</td><td data-t="A"></td><td data-t="B"></td><td data-t="C"></td></tr>
         <tr class="tot y"><td lang="it">Totale all'anno</td><td lang="pt">Total por ano</td><td data-y="A"></td><td data-y="B"></td><td data-y="C"></td></tr>
