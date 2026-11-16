@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="it" data-lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Proposta sito web</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter+Tight:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+<style>
+  body{background:var(--paper)}
+  .p-nav{position:sticky;top:0;z-index:20;display:flex;justify-content:space-between;align-items:center;padding:14px 32px;background:rgba(250,247,241,.94);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .p-nav .lang{color:var(--walnut)}
+  .p-nav .lang button.on span{color:var(--paper)}
+  .p-hero{padding-top:110px;padding-bottom:70px}
+  .p-hero h1{font-size:clamp(56px,9vw,128px);line-height:.9}
+  .p-hero p{font-size:20px;max-width:640px;margin-top:28px;color:var(--walnut-2)}
+  .tldr{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--walnut);margin-top:56px}
+  .tldr div{padding:22px 24px 0 0}
+  .tldr b{font-family:var(--serif);font-weight:400;font-size:26px;display:block;line-height:1.15;margin-bottom:8px}
+  .tldr p{font-size:15px;margin:0;color:var(--walnut-2)}
+  .p-sec{padding:90px 0;border-top:1px solid var(--line)}
+  .p-sec h2{font-size:clamp(38px,5vw,64px);margin-bottom:14px}
+  .p-sec .intro{max-width:680px;color:var(--walnut-2);margin-bottom:44px;font-size:18px}
+  .opts{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+  .opt{background:#fff;border:1px solid var(--line);padding:28px;display:flex;flex-direction:column;position:relative}
+  .opt.rec{border:2px solid var(--oxblood)}
+  .opt .badge{position:absolute;top:-13px;left:24px;background:var(--oxblood);color:#fff;font-size:11px;letter-spacing:.14em;text-transform:uppercase;padding:4px 10px}
+  .opt .letter{font-family:var(--serif);font-size:64px;line-height:1;color:var(--oxblood)}
+  .opt h3{font-size:30px;margin:6px 0 14px}
+  .opt .how{font-size:15px;color:var(--walnut-2);margin-bottom:18px}
+  .opt ol{padding-left:20px;font-size:14px;color:var(--walnut-2);margin-bottom:18px}
+  .opt ol li{padding:3px 0}
+  .opt .cost{border-top:1px solid var(--line);padding-top:14px;margin-top:auto}
+  .opt .cost b{font-family:var(--serif);font-weight:400;font-size:28px}
+  .opt .cost small{display:block;color:var(--muted);font-size:13px}
+  .pc{font-size:14px;margin-top:14px}
+  .pc div{padding:3px 0}
+  .pc .p::before{content:"+ ";color:#1f6f4a;font-weight:600}
+  .pc .m::before{content:"− ";color:var(--oxblood);font-weight:600}
+  .calc{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+  .calc>div{padding:28px;background:var(--linen)}
+  .calc .big{font-family:var(--serif);font-size:56px;line-height:1}
+  .calc .row{display:flex;justify-content:space-between;border-bottom:1px solid var(--line);padding:8px 0;font-size:15px}
+  .flow{display:grid;grid-template-columns:repeat(4,1fr);gap:0;counter-reset:s}
+  .flow div{padding:24px 22px 0 0;border-top:2px solid var(--walnut);position:relative}
+  .flow div::before{counter-increment:s;content:counter(s);font-family:var(--serif);font-size:44px;color:var(--oxblood);line-height:1;display:block;margin-bottom:10px}
+  .flow p{font-size:15px;color:var(--walnut-2)}
+  .flow b{display:block;font-size:17px;margin-bottom:6px;color:var(--walnut)}
+  .check{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .check li{display:flex;gap:14px;padding:16px 0;border-bottom:1px solid var(--line);cursor:pointer}
+  .check li .bx{flex:none;width:22px;height:22px;border:1.5px solid var(--walnut);margin-top:3px;display:grid;place-items:center;font-size:14px}
+  .check li.done .bx{background:var(--walnut);color:var(--paper)}
+  .check li.done .bx::after{content:"✓"}
+  .check li b{display:block;font-weight:600}
+  .check li span.t{font-size:15px;color:var(--walnut-2)}
+  .strat{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+  .strat div{background:var(--paper);padding:26px}
+  .strat h4{font-family:var(--serif);font-weight:400;font-size:26px;margin-bottom:8px}
+  .strat h4 i{color:var(--oxblood);font-style:normal;margin-right:8px}
+  .strat p{font-size:15px;color:var(--walnut-2)}
+  .warn{list-style:none}
+  .warn li{padding:18px 0;border-bottom:1px solid var(--line);display:grid;grid-template-columns:200px 1fr;gap:24px}
+  .warn li b{font-family:var(--serif);font-weight:400;font-size:22px}
+  .warn li span{color:var(--walnut-2);font-size:15px}
+  .next{background:var(--night);color:var(--cream);padding:90px 0}
+  .next h2{font-size:clamp(38px,5vw,64px);margin-bottom:30px}
+  .next ol{font-size:19px;padding-left:24px;max-width:760px}
+  .next ol li{padding:8px 0}
+  .src{font-size:12px;color:var(--muted);margin-top:30px}
+  .src a{color:var(--muted)}
+  @media (max-width:980px){.opts,.calc,.tldr,.check,.strat{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr;gap:20px}.warn li{grid-template-columns:1fr;gap:4px}}
+  @media (max-width:600px){.p-nav{padding:12px 16px}.flow{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<div class="p-nav">
+  <a href="index.html" class="brand" style="color:var(--walnut)">Due Case<small>← <span lang="it">vedi la demo del sito</span><span lang="pt">ver a demo do site</span></small></a>
+  <div class="lang"><button data-set="it" class="on"><span>IT</span></button><button data-set="pt"><span>PT</span></button></div>
+</div>
+
+<header class="wrap p-hero">
+  <div class="eyebrow"><span lang="it">Proposta per Elena e Riccardo · novembre 2026</span><span lang="pt">Proposta para Elena e Riccardo · novembro 2026</span></div>
+  <h1><span lang="it">Un sito<br><em>tutto vostro</em></span><span lang="pt">Um site<br><em>só de vocês</em></span></h1>
+  <p lang="it">L'obiettivo: far arrivare ospiti direttamente a voi, senza pagare commissioni a Booking e Airbnb, e senza complicarvi la vita. Qui sotto trovate le possibilità, quanto costano, e cosa serve da voi.</p>
+  <p lang="pt">O objetivo: fazer os hóspedes chegarem direto a vocês, sem pagar comissão para Booking e Airbnb, e sem complicar a vida. Abaixo estão as opções, quanto custam e o que precisamos de vocês.</p>
+  <div class="tldr">
+    <div><b lang="it">Sì, si può fare.</b><b lang="pt">Sim, dá para fazer.</b><p lang="it">Anche con prenotazione e pagamento online, come un albergo.</p><p lang="pt">Inclusive com reserva e pagamento online, como um hotel.</p></div>
+    <div><b lang="it">Non lasciate subito Booking e Airbnb.</b><b lang="pt">Não saiam já do Booking e do Airbnb.</b><p lang="it">Portano i clienti nuovi. Il sito serve a farli tornare da voi.</p><p lang="pt">Eles trazem clientes novos. O site serve para eles voltarem direto a vocês.</p></div>
+    <div><b lang="it">Costo: da ~€15 l'anno.</b><b lang="pt">Custo: a partir de ~€15 por ano.</b><p lang="it">Fino a ~€25–50 al mese per la versione con pagamento automatico.</p><p lang="pt">Até ~€25–50 por mês na versão com pagamento automático.</p></div>
+  </div>
+</header>
+
+<section class="p-sec">
+  <div class="wrap">
+    <div class="eyebrow"><span lang="it">Le tre strade</span><span lang="pt">Os três caminhos</span></div>
+    <h2><span lang="it">Cosa può fare il sito</span><span lang="pt">O que o site pode fazer</span></h2>
+    <p class="intro" lang="it">Tutte e tre hanno lo stesso sito bello (foto, descrizioni, recensioni, italiano e inglese). Cambia solo cosa succede quando l'ospite vuole prenotare.</p>
+    <p class="intro" lang="pt">As três têm o mesmo site bonito (fotos, descrições, avaliações, italiano e inglês). Só muda o que acontece quando o hóspede quer reservar.</p>
+    <div class="opts">
+      <div class="opt">
+        <div class="letter">A</div>
+        <h3 lang="it">Vetrina + WhatsApp</h3><h3 lang="pt">Vitrine + WhatsApp</h3>
+        <p class="how" lang="it">L'ospite vede le case e vi scrive con un clic. Il messaggio arriva già con date e numero di persone.</p>
+        <p class="how" lang="pt">O hóspede vê as casas e escreve para vocês com um clique. A mensagem já chega com as datas e o número de pessoas.</p>
+        <ol lang="it"><li>Sceglie le date</li><li>Clic → WhatsApp</li><li>Vi accordate e pagate con bonifico</li></ol>
+        <ol lang="pt"><li>Escolhe as datas</li><li>Clique → WhatsApp</li><li>Vocês combinam e ele paga por transferência</li></ol>
+        <div class="cost"><b>~€15 / <span lang="it">anno</span><span lang="pt">ano</span></b><small lang="it">solo il nome del sito (dominio). Hosting gratuito.</small><small lang="pt">só o nome do site (domínio). Hospedagem grátis.</small></div>
+        <div class="pc" lang="it"><div class="p">Pronto in una settimana</div><div class="p">Zero commissioni</div><div class="m">Pagamento e calendario a mano</div></div>
+        <div class="pc" lang="pt"><div class="p">Pronto em uma semana</div><div class="p">Zero comissão</div><div class="m">Pagamento e calendário feitos à mão</div></div>
+      </div>
+      <div class="opt">
+        <div class="letter">B</div>
+        <h3 lang="it">Richiesta + link di pagamento</h3><h3 lang="pt">Pedido + link de pagamento</h3>
+        <p class="how" lang="it">Come A, ma quando confermate mandate all'ospite un link per pagare con carta (Stripe). I soldi arrivano sul vostro conto.</p>
+        <p class="how" lang="pt">Como a A, mas quando vocês confirmam, mandam para o hóspede um link para pagar com cartão (Stripe). O dinheiro cai na conta de vocês.</p>
+        <ol lang="it"><li>Richiesta dal sito</li><li>Controllate il calendario</li><li>Inviate il link → l'ospite paga</li></ol>
+        <ol lang="pt"><li>Pedido pelo site</li><li>Vocês conferem o calendário</li><li>Mandam o link → o hóspede paga</li></ol>
+        <div class="cost"><b>~€15 / <span lang="it">anno</span><span lang="pt">ano</span></b><small lang="it">+ circa 1,5% + €0,25 per pagamento con carta europea</small><small lang="pt">+ cerca de 1,5% + €0,25 por pagamento com cartão europeu</small></div>
+        <div class="pc" lang="it"><div class="p">Pagamento con carta, sicuro</div><div class="p">Nessun canone mensile</div><div class="m">Rischio doppia prenotazione se non aggiornate i calendari</div></div>
+        <div class="pc" lang="pt"><div class="p">Pagamento com cartão, seguro</div><div class="p">Sem mensalidade</div><div class="m">Risco de reserva dupla se os calendários não forem atualizados</div></div>
+      </div>
+      <div class="opt rec">
+        <span class="badge" lang="it">Consigliata</span><span class="badge" lang="pt">Recomendada</span>
+        <div class="letter">C</div>
+        <h3 lang="it">Prenota e paga, automatico</h3><h3 lang="pt">Reserva e paga, automático</h3>
+        <p class="how" lang="it">Come un albergo: l'ospite vede i giorni liberi, prenota e paga da solo. Un programma tiene allineati sito, Booking e Airbnb.</p>
+        <p class="how" lang="pt">Como um hotel: o hóspede vê os dias livres, reserva e paga sozinho. Um programa mantém site, Booking e Airbnb sincronizados.</p>
+        <ol lang="it"><li>Sceglie le date libere</li><li>Paga con carta</li><li>Voi ricevete una notifica. Fine.</li></ol>
+        <ol lang="pt"><li>Escolhe as datas livres</li><li>Paga com cartão</li><li>Vocês recebem um aviso. Pronto.</li></ol>
+        <div class="cost"><b>~€25–50 / <span lang="it">mese</span><span lang="pt">mês</span></b><small lang="it">programma di prenotazione per 2 case (es. Smoobu, Lodgify, Beds24, Octorate) + ~1,5% per pagamento</small><small lang="pt">programa de reservas para 2 casas (ex.: Smoobu, Lodgify, Beds24, Octorate) + ~1,5% por pagamento</small></div>
+        <div class="pc" lang="it"><div class="p">Niente doppie prenotazioni</div><div class="p">Vi fa risparmiare tempo anche su Booking e Airbnb (messaggi automatici, un solo calendario)</div><div class="m">Canone mensile</div></div>
+        <div class="pc" lang="pt"><div class="p">Sem reservas duplicadas</div><div class="p">Economiza tempo também no Booking e Airbnb (mensagens automáticas, um calendário só)</div><div class="m">Mensalidade</div></div>
+      </div>
+    </div>
+
+    <div class="calc">
+      <div>
+        <div class="eyebrow"><span lang="it">Esempio: 3 notti a €80 + €30 pulizia</span><span lang="pt">Exemplo: 3 noites a €80 + €30 de limpeza</span></div>
+        <div class="row"><span lang="it">Prezzo del soggiorno</span><span lang="pt">Valor da estadia</span><span>€270</span></div>
+        <div class="row"><span lang="it">Via Booking / Airbnb (~15–20% di commissioni)</span><span lang="pt">Via Booking / Airbnb (~15–20% de comissão)</span><span>−€40/55</span></div>
+        <div class="row"><span lang="it">Diretto con carta (Stripe)</span><span lang="pt">Direto com cartão (Stripe)</span><span>−€4</span></div>
+      </div>
+      <div>
+        <div class="eyebrow"><span lang="it">Il conto in breve</span><span lang="pt">A conta resumida</span></div>
+        <div class="big">~€40</div>
+        <p lang="it" style="margin-top:12px;color:var(--walnut-2)">risparmiati per ogni soggiorno diretto. Con circa un soggiorno diretto al mese, l'opzione C si ripaga da sola.</p>
+        <p lang="pt" style="margin-top:12px;color:var(--walnut-2)">economizados em cada estadia direta. Com mais ou menos uma estadia direta por mês, a opção C se paga sozinha.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="p-sec" style="background:var(--linen)">
+  <div class="wrap">
+    <div class="eyebrow"><span lang="it">Per l'ospite</span><span lang="pt">Para o hóspede</span></div>
+    <h2><span lang="it">Meno passaggi possibile</span><span lang="pt">O mínimo de passos possível</span></h2>
+    <p class="intro" lang="it">Ogni passaggio in più fa perdere qualcuno. Per questo nel sito c'è sempre un pulsante WhatsApp visibile, e la prenotazione sta nella stessa pagina della casa.</p>
+    <p class="intro" lang="pt">Cada passo a mais faz alguém desistir. Por isso o site sempre tem um botão de WhatsApp visível, e a reserva fica na mesma página da casa.</p>
+    <div class="flow">
+      <div><b lang="it">Trova il sito</b><b lang="pt">Encontra o site</b><p lang="it">Da Google Maps, Instagram o dal cartoncino in casa.</p><p lang="pt">Pelo Google Maps, Instagram ou pelo cartãozinho na casa.</p></div>
+      <div><b lang="it">Si innamora</b><b lang="pt">Se apaixona</b><p lang="it">Belle foto, recensioni vere, la vostra storia.</p><p lang="pt">Fotos bonitas, avaliações reais, a história de vocês.</p></div>
+      <div><b lang="it">Vede il risparmio</b><b lang="pt">Vê a economia</b><p lang="it">Prezzo più basso che su Booking, scritto chiaro.</p><p lang="pt">Preço menor que no Booking, escrito com clareza.</p></div>
+      <div><b lang="it">Prenota o scrive</b><b lang="pt">Reserva ou escreve</b><p lang="it">Paga in un minuto, o chiede su WhatsApp.</p><p lang="pt">Paga em um minuto, ou pergunta no WhatsApp.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="p-sec">
+  <div class="wrap">
+    <div class="eyebrow"><span lang="it">La lista</span><span lang="pt">A lista</span></div>
+    <h2><span lang="it">Cosa serve da voi</span><span lang="pt">O que precisamos de vocês</span></h2>
+    <p class="intro" lang="it">Potete spuntare le voci (clic). Il resto lo facciamo noi.</p>
+    <p class="intro" lang="pt">Dá para marcar os itens (clique). O resto fica com a gente.</p>
+    <ul class="check" id="check">
+      <li><i class="bx"></i><div><b lang="it">Scegliere A, B o C</b><b lang="pt">Escolher A, B ou C</b><span class="t" lang="it">Si può anche partire da A e passare a C dopo.</span><span class="t" lang="pt">Dá para começar pela A e passar para a C depois.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Il nome</b><b lang="pt">O nome</b><span class="t" lang="it">Un marchio unico per le due case («Due Case» è solo un esempio) e il dominio, es. duecasemondovi.it, intestato a voi.</span><span class="t" lang="pt">Uma marca única para as duas casas («Due Case» é só um exemplo) e o domínio, ex.: duecasemondovi.it, no nome de vocês.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Le foto originali</b><b lang="pt">As fotos originais</b><span class="t" lang="it">15–20 per casa, in alta risoluzione (quelle della demo sono prese da Booking e Airbnb). Una foto di voi due, se vi va.</span><span class="t" lang="pt">15–20 por casa, em alta resolução (as da demo foram tiradas do Booking e Airbnb). Uma foto dos dois, se quiserem.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Due righe di testo</b><b lang="pt">Algumas linhas de texto</b><span class="t" lang="it">Chi siete, la storia delle case, i vostri posti preferiti a Mondovì.</span><span class="t" lang="pt">Quem são vocês, a história das casas, os lugares preferidos de vocês em Mondovì.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Prezzi e regole</b><b lang="pt">Preços e regras</b><span class="t" lang="it">Prezzo per stagione, pulizia, notti minime, sconto diretto, politica di cancellazione, caparra.</span><span class="t" lang="pt">Preço por temporada, limpeza, mínimo de noites, desconto direto, política de cancelamento, caução.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Contatti</b><b lang="pt">Contatos</b><span class="t" lang="it">Numero WhatsApp, email e telefono, e chi dei due risponde.</span><span class="t" lang="pt">Número de WhatsApp, e-mail e telefone, e qual dos dois responde.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Account Stripe (per B e C)</b><b lang="pt">Conta Stripe (para B e C)</b><span class="t" lang="it">Lo aprite voi con IBAN e documento: 15 minuti, vi guidiamo noi. Nessuno tranne voi vede i dati bancari.</span><span class="t" lang="pt">Vocês mesmos abrem, com IBAN e documento: 15 minutos, e a gente guia. Ninguém além de vocês vê os dados bancários.</span></div></li>
+      <li><i class="bx"></i><div><b lang="it">Abbonamento al programma (per C)</b><b lang="pt">Assinatura do programa (para C)</b><span class="t" lang="it">Proviamo insieme 1–2 programmi con la prova gratuita prima di scegliere.</span><span class="t" lang="pt">Testamos juntos 1–2 programas no período grátis antes de escolher.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<section class="p-sec" style="background:var(--linen)">
+  <div class="wrap">
+    <div class="eyebrow"><span lang="it">Strategia</span><span lang="pt">Estratégia</span></div>
+    <h2><span lang="it">Come arrivano gli ospiti</span><span lang="pt">Como os hóspedes chegam</span></h2>
+    <p class="intro" lang="it">Un sito nuovo non lo trova nessuno da solo. L'idea: usare Booking e Airbnb per farsi conoscere, e il sito per farli tornare e passare parola.</p>
+    <p class="intro" lang="pt">Ninguém encontra um site novo sozinho. A ideia: usar Booking e Airbnb para ser conhecido, e o site para os hóspedes voltarem e indicarem para outros.</p>
+    <div class="strat">
+      <div><h4><i>1</i><span lang="it">Il cartoncino in casa</span><span lang="pt">O cartãozinho na casa</span></h4><p lang="it">Un bel biglietto con QR code e codice sconto «TORNO»: chi è stato bene prenota direttamente la prossima volta.</p><p lang="pt">Um cartão bonito com QR code e o código de desconto «TORNO»: quem gostou reserva direto da próxima vez.</p></div>
+      <div><h4><i>2</i><span lang="it">Google Maps</span><span lang="pt">Google Maps</span></h4><p lang="it">Scheda Google gratuita con foto, recensioni e link al sito. È dove la gente cerca «appartamento Mondovì».</p><p lang="pt">Perfil gratuito no Google com fotos, avaliações e link para o site. É onde as pessoas procuram «appartamento Mondovì».</p></div>
+      <div><h4><i>3</i><span lang="it">Prezzo diretto più basso</span><span lang="pt">Preço direto mais baixo</span></h4><p lang="it">Sempre ~10% in meno che sulle piattaforme. Voi guadagnate comunque di più, perché non pagate commissioni.</p><p lang="pt">Sempre ~10% mais barato que nas plataformas. Vocês ainda ganham mais, porque não pagam comissão.</p></div>
+      <div><h4><i>4</i><span lang="it">Instagram da architetti</span><span lang="pt">Instagram de arquitetos</span></h4><p lang="it">Dettagli, travi, materiali, prima/dopo dei lavori. È il vostro mestiere, e si vede: chi ama queste foto prenota.</p><p lang="pt">Detalhes, vigas, materiais, antes/depois da obra. É a profissão de vocês, e isso aparece: quem gosta dessas fotos reserva.</p></div>
+      <div><h4><i>5</i><span lang="it">Partner locali</span><span lang="pt">Parceiros locais</span></h4><p lang="it">Ristoranti, cantine delle Langhe, scuole di sci, aziende della zona che ospitano lavoratori in trasferta.</p><p lang="pt">Restaurantes, vinícolas das Langhe, escolas de esqui, empresas da região que recebem funcionários de fora.</p></div>
+      <div><h4><i>6</i><span lang="it">Google Vacation Rentals</span><span lang="pt">Google Vacation Rentals</span></h4><p lang="it">Con l'opzione C, alcuni programmi mostrano le case direttamente su Google con «prenota sul sito ufficiale».</p><p lang="pt">Com a opção C, alguns programas mostram as casas direto no Google com «reservar no site oficial».</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="p-sec">
+  <div class="wrap">
+    <div class="eyebrow"><span lang="it">Da sapere</span><span lang="pt">Bom saber</span></div>
+    <h2><span lang="it">Cosa cambia, onestamente</span><span lang="pt">O que muda, com sinceridade</span></h2>
+    <ul class="warn" style="margin-top:30px">
+      <li><b lang="it">Niente link nelle chat</b><b lang="pt">Nada de link nos chats</b><span lang="it">Non mandate il sito agli ospiti dentro la chat di Airbnb o Booking: è vietato e rischiate la sospensione. Il cartoncino in casa sì.</span><span lang="pt">Não mandem o site para os hóspedes pelo chat do Airbnb ou Booking: é proibido e dá risco de suspensão. O cartãozinho na casa pode.</span></li>
+      <li><b lang="it">Protezione danni</b><b lang="pt">Proteção contra danos</b><span lang="it">Le piattaforme coprono i danni; da soli no. Soluzione: caparra o deposito cauzionale e regole chiare al momento della prenotazione.</span><span lang="pt">As plataformas cobrem danos; sozinhos, não. Solução: caução ou depósito e regras claras no momento da reserva.</span></li>
+      <li><b>CIN</b><span lang="it">Il codice va mostrato in ogni annuncio, sito compreso. Già fatto nella demo, per entrambe le case.</span><span lang="pt">O código precisa aparecer em todo anúncio, inclusive no site. Já está na demo, para as duas casas.</span></li>
+      <li><b>Alloggiati Web</b><span lang="it">Come adesso: comunicate gli ospiti alla Questura entro 24 ore. Con l'opzione C molti programmi lo fanno quasi in automatico.</span><span lang="pt">Como agora: vocês informam os hóspedes à polícia (Questura) em até 24 horas. Com a opção C, muitos programas fazem isso quase automaticamente.</span></li>
+      <li><b lang="it">Tassa di soggiorno</b><b lang="pt">Taxa de turismo</b><span lang="it">Da quanto risulta (gennaio 2026), Mondovì non la applica. Da ricontrollare con il Comune prima del lancio.</span><span lang="pt">Pelo que encontramos (janeiro 2026), Mondovì não cobra. Conferir com a prefeitura antes do lançamento.</span></li>
+      <li><b lang="it">Tasse e ricevute</b><b lang="pt">Impostos e recibos</b><span lang="it">Non cambia nulla rispetto a oggi, ma conviene una parola col commercialista sui pagamenti diretti.</span><span lang="pt">Nada muda em relação a hoje, mas vale conversar com o contador sobre os pagamentos diretos.</span></li>
+      <li><b>Privacy</b><span lang="it">Servono una pagina privacy e una cookie policy (GDPR). Le prepariamo con un modello.</span><span lang="pt">É preciso uma página de privacidade e uma política de cookies (GDPR). A gente prepara a partir de um modelo.</span></li>
+      <li><b lang="it">Dove sta il sito</b><b lang="pt">Onde o site fica</b><span lang="it">La demo è su GitHub Pages, che non è pensato per siti commerciali. Il sito vero andrà su un hosting gratuito adatto (es. Cloudflare Pages o Netlify) con il vostro dominio.</span><span lang="pt">A demo está no GitHub Pages, que não é feito para sites comerciais. O site de verdade vai para uma hospedagem gratuita adequada (ex.: Cloudflare Pages ou Netlify) com o domínio de vocês.</span></li>
+    </ul>
+  </div>
+</section>
+
+<section class="next">
+  <div class="wrap">
+    <div class="eyebrow" style="color:#a99d84"><span lang="it">Prossimi passi</span><span lang="pt">Próximos passos</span></div>
+    <h2><span lang="it">E adesso?</span><span lang="pt">E agora?</span></h2>
+    <ol lang="it">
+      <li>Guardate la demo e diteci cosa vi piace e cosa no.</li>
+      <li>Scegliete A, B o C.</li>
+      <li>Mandateci foto, testi, prezzi e contatti (la lista qui sopra).</li>
+      <li>In 1–3 settimane il sito è online con il vostro dominio.</li>
+    </ol>
+    <ol lang="pt">
+      <li>Vejam a demo e digam o que gostam e o que não gostam.</li>
+      <li>Escolham A, B ou C.</li>
+      <li>Mandem fotos, textos, preços e contatos (a lista acima).</li>
+      <li>Em 1–3 semanas o site está no ar com o domínio de vocês.</li>
+    </ol>
+    <a href="index.html" class="btn btn-cream" style="margin-top:36px"><span lang="it">Apri la demo del sito</span><span lang="pt">Abrir a demo do site</span> ↗</a>
+    <p class="src" lang="it">Prezzi e regole verificati a novembre 2026 da fonti pubbliche; i prezzi dei programmi cambiano spesso e vanno ricontrollati al momento della scelta.</p>
+    <p class="src" lang="pt">Preços e regras verificados em novembro de 2026 em fontes públicas; os preços dos programas mudam com frequência e devem ser conferidos na hora da escolha.</p>
+  </div>
+</section>
+
+<script>
+const $$ = s => [...document.querySelectorAll(s)];
+function setLang(l){
+  document.documentElement.dataset.lang = l; document.documentElement.lang = l;
+  $$('.lang button').forEach(b => b.classList.toggle('on', b.dataset.set === l));
+  try{ localStorage.setItem('plang', l) }catch(e){}
+}
+$$('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.set));
+try{ const s = localStorage.getItem('plang'); if (s) setLang(s) }catch(e){}
+let st = {}; try{ st = JSON.parse(localStorage.getItem('pcheck') || '{}') }catch(e){}
+$$('#check li').forEach((li, i) => {
+  if (st[i]) li.classList.add('done');
+  li.onclick = () => { li.classList.toggle('done'); st[i] = li.classList.contains('done'); try{ localStorage.setItem('pcheck', JSON.stringify(st)) }catch(e){} };
+});
+</script>
+</body>
+</html>
