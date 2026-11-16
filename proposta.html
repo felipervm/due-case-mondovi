@@ -71,6 +71,34 @@
   .next ol li{padding:8px 0}
   .src{font-size:12px;color:var(--muted);margin-top:30px}
   .src a{color:var(--muted)}
+  .costs{background:#fff}
+  .ctrl{display:grid;grid-template-columns:1fr 1fr auto;gap:32px;align-items:end;padding:26px 28px;background:var(--linen);margin-bottom:28px}
+  .ctrl label{display:grid;grid-template-columns:1fr auto;gap:8px 12px;font-size:14px;color:var(--walnut-2)}
+  .ctrl output{font-family:var(--serif);font-size:30px;line-height:1;color:var(--walnut);font-variant-numeric:lining-nums}
+  .ctrl input[type=range]{grid-column:1/-1;width:100%;accent-color:var(--oxblood)}
+  .bill{font-size:14px;color:var(--walnut-2)}
+  .seg{display:flex;border:1px solid var(--walnut);margin-top:8px}
+  .seg button{background:none;border:0;padding:8px 14px;font-size:13px;color:var(--walnut)}
+  .seg button.on{background:var(--walnut);color:var(--paper)}
+  .tbl-wrap{overflow-x:auto}
+  .ctbl{width:100%;border-collapse:collapse;font-size:16px;min-width:560px;font-variant-numeric:lining-nums tabular-nums}
+  .ctbl th{text-align:right;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1;padding:0 16px 14px;border-bottom:2px solid var(--walnut);color:var(--oxblood)}
+  .ctbl th small{display:block;font-family:var(--sans);font-size:12px;color:var(--muted);letter-spacing:.06em;margin-top:6px}
+  .ctbl th.rec,.ctbl td:last-child{background:#f8efe9}
+  .ctbl td{padding:16px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}
+  .ctbl td:first-child{text-align:left;white-space:normal}
+  .ctbl td:first-child small{display:block;color:var(--muted);font-size:13px}
+  .ctbl .tot td{font-weight:600;font-size:18px;border-bottom:0;padding-top:20px}
+  .ctbl .tot.y td{font-family:var(--serif);font-weight:500;font-size:30px;padding-top:6px;border-bottom:2px solid var(--walnut)}
+  .vs{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:32px}
+  .vs>div{padding:28px;background:var(--linen)}
+  .vs .save{background:#1f4d38;color:#eef5ef}
+  .vs .save .eyebrow{color:#b9d3c1}
+  .vs .big{font-family:var(--serif);font-size:60px;line-height:1.05;margin:8px 0 6px;font-variant-numeric:lining-nums}
+  .vs p{font-size:15px;opacity:.85}
+  .fine{list-style:none;margin-top:36px;font-size:14px;color:var(--walnut-2);display:grid;grid-template-columns:1fr 1fr;gap:0 40px}
+  .fine li{padding:10px 0;border-top:1px solid var(--line)}
+  @media (max-width:980px){.ctrl,.vs,.fine{grid-template-columns:1fr}.vs .big{font-size:46px}}
   @media (max-width:980px){.opts,.calc,.tldr,.check,.strat{grid-template-columns:1fr}.flow{grid-template-columns:1fr 1fr;gap:20px}.warn li{grid-template-columns:1fr;gap:4px}}
   @media (max-width:600px){.p-nav{padding:12px 16px}.flow{grid-template-columns:1fr}}
 </style>
@@ -90,7 +118,7 @@
   <div class="tldr">
     <div><b lang="it">Sì, si può fare.</b><b lang="pt">Sim, dá para fazer.</b><p lang="it">Anche con prenotazione e pagamento online, come un albergo.</p><p lang="pt">Inclusive com reserva e pagamento online, como um hotel.</p></div>
     <div><b lang="it">Non lasciate subito Booking e Airbnb.</b><b lang="pt">Não saiam já do Booking e do Airbnb.</b><p lang="it">Portano i clienti nuovi. Il sito serve a farli tornare da voi.</p><p lang="pt">Eles trazem clientes novos. O site serve para eles voltarem direto a vocês.</p></div>
-    <div><b lang="it">Costo: da ~€15 l'anno.</b><b lang="pt">Custo: a partir de ~€15 por ano.</b><p lang="it">Fino a ~€25–50 al mese per la versione con pagamento automatico.</p><p lang="pt">Até ~€25–50 por mês na versão com pagamento automático.</p></div>
+    <div><b lang="it">Costo: da ~€15 l'anno.</b><b lang="pt">Custo: a partir de ~€15 por ano.</b><p lang="it">Fino a ~€42–47 al mese per la versione con pagamento automatico. Sempre molto meno delle commissioni di oggi.</p><p lang="pt">Até ~€42–47 por mês na versão com pagamento automático. Sempre bem menos que as comissões de hoje.</p></div>
   </div>
 </header>
 
@@ -131,26 +159,71 @@
         <p class="how" lang="pt">Como um hotel: o hóspede vê os dias livres, reserva e paga sozinho. Um programa mantém site, Booking e Airbnb sincronizados.</p>
         <ol lang="it"><li>Sceglie le date libere</li><li>Paga con carta</li><li>Voi ricevete una notifica. Fine.</li></ol>
         <ol lang="pt"><li>Escolhe as datas livres</li><li>Paga com cartão</li><li>Vocês recebem um aviso. Pronto.</li></ol>
-        <div class="cost"><b>~€25–50 / <span lang="it">mese</span><span lang="pt">mês</span></b><small lang="it">programma di prenotazione per 2 case (es. Smoobu, Lodgify, Beds24, Octorate) + ~1,5% per pagamento</small><small lang="pt">programa de reservas para 2 casas (ex.: Smoobu, Lodgify, Beds24, Octorate) + ~1,5% por pagamento</small></div>
+        <div class="cost"><b>~€42–47 / <span lang="it">mese</span><span lang="pt">mês</span></b><small lang="it">Smoobu per 2 case (IVA esclusa) + Stripe ~1,5% + €0,25 per pagamento. Dettagli qui sotto ↓</small><small lang="pt">Smoobu para 2 casas (sem IVA) + Stripe ~1,5% + €0,25 por pagamento. Detalhes abaixo ↓</small></div>
         <div class="pc" lang="it"><div class="p">Niente doppie prenotazioni</div><div class="p">Vi fa risparmiare tempo anche su Booking e Airbnb (messaggi automatici, un solo calendario)</div><div class="m">Canone mensile</div></div>
         <div class="pc" lang="pt"><div class="p">Sem reservas duplicadas</div><div class="p">Economiza tempo também no Booking e Airbnb (mensagens automáticas, um calendário só)</div><div class="m">Mensalidade</div></div>
       </div>
     </div>
 
-    <div class="calc">
-      <div>
-        <div class="eyebrow"><span lang="it">Esempio: 3 notti a €80 + €30 pulizia</span><span lang="pt">Exemplo: 3 noites a €80 + €30 de limpeza</span></div>
-        <div class="row"><span lang="it">Prezzo del soggiorno</span><span lang="pt">Valor da estadia</span><span>€270</span></div>
-        <div class="row"><span lang="it">Via Booking / Airbnb (~15–20% di commissioni)</span><span lang="pt">Via Booking / Airbnb (~15–20% de comissão)</span><span>−€40/55</span></div>
-        <div class="row"><span lang="it">Diretto con carta (Stripe)</span><span lang="pt">Direto com cartão (Stripe)</span><span>−€4</span></div>
-      </div>
-      <div>
-        <div class="eyebrow"><span lang="it">Il conto in breve</span><span lang="pt">A conta resumida</span></div>
-        <div class="big">~€40</div>
-        <p lang="it" style="margin-top:12px;color:var(--walnut-2)">risparmiati per ogni soggiorno diretto. Con circa un soggiorno diretto al mese, l'opzione C si ripaga da sola.</p>
-        <p lang="pt" style="margin-top:12px;color:var(--walnut-2)">economizados em cada estadia direta. Com mais ou menos uma estadia direta por mês, a opção C se paga sozinha.</p>
+  </div>
+</section>
+
+<section class="p-sec costs" id="costi">
+  <div class="wrap">
+    <div class="eyebrow"><span lang="it">Il punto più importante</span><span lang="pt">O ponto mais importante</span></div>
+    <h2><span lang="it">Quanto costa, <em>mese per mese</em></span><span lang="pt">Quanto custa, <em>mês a mês</em></span></h2>
+    <p class="intro" lang="it">Muovete i due cursori: quante prenotazioni dirette pensate di avere al mese e quanto vale in media un soggiorno. La tabella calcola tutto da sola.</p>
+    <p class="intro" lang="pt">Mexam os dois controles: quantas reservas diretas vocês esperam por mês e quanto vale em média uma estadia. A tabela calcula tudo sozinha.</p>
+
+    <div class="ctrl">
+      <label><span lang="it">Prenotazioni dirette al mese</span><span lang="pt">Reservas diretas por mês</span><output id="oN">3</output><input type="range" id="rN" min="1" max="12" value="3"></label>
+      <label><span lang="it">Valore medio di un soggiorno</span><span lang="pt">Valor médio de uma estadia</span><output id="oV">€270</output><input type="range" id="rV" min="100" max="700" step="10" value="270"></label>
+      <div class="bill"><span lang="it">Programma (C) pagato</span><span lang="pt">Programa (C) pago</span>
+        <div class="seg"><button data-b="y" class="on"><span lang="it">all'anno</span><span lang="pt">por ano</span></button><button data-b="m"><span lang="it">al mese</span><span lang="pt">por mês</span></button></div>
       </div>
     </div>
+
+    <div class="tbl-wrap">
+    <table class="ctbl">
+      <thead><tr><th></th><th>A<small lang="it">Vetrina + WhatsApp</small><small lang="pt">Vitrine + WhatsApp</small></th><th>B<small lang="it">Link di pagamento</small><small lang="pt">Link de pagamento</small></th><th class="rec">C<small lang="it">Automatico · consigliata</small><small lang="pt">Automático · recomendada</small></th></tr></thead>
+      <tbody>
+        <tr><td><b lang="it">Nome del sito</b><b lang="pt">Nome do site</b><small lang="it">dominio .it, ~€15 l'anno</small><small lang="pt">domínio .it, ~€15 por ano</small></td><td data-c="dom"></td><td data-c="dom"></td><td data-c="dom"></td></tr>
+        <tr><td><b lang="it">Hosting</b><b lang="pt">Hospedagem</b><small lang="it">dove "vive" il sito</small><small lang="pt">onde o site "mora"</small></td><td>€0</td><td>€0</td><td>€0</td></tr>
+        <tr><td><b lang="it">Pagamenti con carta</b><b lang="pt">Pagamentos com cartão</b><small lang="it">Stripe: 1,5% + €0,25 a pagamento</small><small lang="pt">Stripe: 1,5% + €0,25 por pagamento</small></td><td><span lang="it">€0 (bonifico)</span><span lang="pt">€0 (transferência)</span></td><td data-c="stripe"></td><td data-c="stripe"></td></tr>
+        <tr><td><b lang="it">Programma di prenotazione</b><b lang="pt">Programa de reservas</b><small lang="it">Smoobu, 2 case, IVA esclusa</small><small lang="pt">Smoobu, 2 casas, sem IVA</small></td><td>€0</td><td>€0</td><td data-c="soft"></td></tr>
+        <tr class="tot"><td lang="it">Totale al mese</td><td lang="pt">Total por mês</td><td data-t="A"></td><td data-t="B"></td><td data-t="C"></td></tr>
+        <tr class="tot y"><td lang="it">Totale all'anno</td><td lang="pt">Total por ano</td><td data-y="A"></td><td data-y="B"></td><td data-y="C"></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="vs">
+      <div>
+        <div class="eyebrow"><span lang="it">Le stesse prenotazioni su Booking / Airbnb</span><span lang="pt">As mesmas reservas no Booking / Airbnb</span></div>
+        <div class="big" id="plat">—</div>
+        <p lang="it">di commissioni al mese (circa 15–20% di ogni soggiorno)</p>
+        <p lang="pt">de comissão por mês (cerca de 15–20% de cada estadia)</p>
+      </div>
+      <div class="save">
+        <div class="eyebrow"><span lang="it">Con l'opzione C risparmiate</span><span lang="pt">Com a opção C vocês economizam</span></div>
+        <div class="big" id="save">—</div>
+        <p lang="it">all'anno, già tolti tutti i costi</p>
+        <p lang="pt">por ano, já descontados todos os custos</p>
+      </div>
+    </div>
+
+    <ul class="fine">
+      <li lang="it"><b>Smoobu</b> (verificato a novembre 2026, 2 case, piano Professional senza commissioni): €47 al mese se pagato mese per mese, circa €42 al mese se pagato all'anno (~€508/anno). Prova gratuita di 14 giorni.</li>
+      <li lang="pt"><b>Smoobu</b> (conferido em novembro de 2026, 2 casas, plano Professional sem comissão): €47 por mês pagando mês a mês, cerca de €42 por mês pagando por ano (~€508/ano). Teste grátis de 14 dias.</li>
+      <li lang="it"><b>Offerta Black Friday adesso:</b> con il codice BLACKFRIDAY26 il piano annuale costa €15,98 al mese (~€192 il primo anno). Conviene decidere entro la fine dell'offerta.</li>
+      <li lang="pt"><b>Promoção de Black Friday agora:</b> com o código BLACKFRIDAY26 o plano anual sai por €15,98 por mês (~€192 no primeiro ano). Vale decidir antes de a promoção acabar.</li>
+      <li lang="it"><b>IVA:</b> i prezzi di Smoobu sono senza IVA. Se lo pagate da privati si aggiunge il 22% (~€52–57 al mese).</li>
+      <li lang="pt"><b>IVA:</b> os preços da Smoobu são sem IVA (imposto italiano). Se pagarem como pessoa física, somam-se 22% (~€52–57 por mês).</li>
+      <li lang="it"><b>Stripe:</b> nessun canone, si paga solo quando un ospite paga. 1,5% + €0,25 per carte europee normali; 2,8% per carte premium/aziendali, 2,5% per carte UK, 3,15% per carte extra-UE (+2% se in altra valuta).</li>
+      <li lang="pt"><b>Stripe:</b> sem mensalidade, só paga quando um hóspede paga. 1,5% + €0,25 para cartões europeus comuns; 2,8% para cartões premium/empresariais, 2,5% para cartões do Reino Unido, 3,15% para cartões de fora da Europa (+2% se em outra moeda).</li>
+      <li lang="it"><b>Nessun costo nascosto:</b> nessuna spesa di attivazione, nessun contratto lungo con il pagamento mensile.</li>
+      <li lang="pt"><b>Sem custo escondido:</b> sem taxa de ativação e sem contrato longo no pagamento mensal.</li>
+    </ul>
   </div>
 </section>
 
@@ -253,6 +326,31 @@ function setLang(l){
 }
 $$('.lang button').forEach(b => b.onclick = () => setLang(b.dataset.set));
 try{ const s = localStorage.getItem('plang'); if (s) setLang(s) }catch(e){}
+// cost calculator
+const C = { dom: 15/12, stripePct: .015, stripeFix: .25, soft: { y: 42.30, m: 47 }, plat: [.15, .20] };
+let bill = 'y';
+const eur = (n, d = 0) => { const [i, f] = n.toFixed(d).split('.'); return '€' + i.replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (f ? ',' + f : '') };
+function calcCosts(){
+  const n = +document.getElementById('rN').value, v = +document.getElementById('rV').value;
+  document.getElementById('oN').textContent = n;
+  document.getElementById('oV').textContent = eur(v);
+  const stripe = n * (v * C.stripePct + C.stripeFix), soft = C.soft[bill];
+  const tot = { A: C.dom, B: C.dom + stripe, C: C.dom + stripe + soft };
+  $$('[data-c=dom]').forEach(e => e.textContent = eur(C.dom, 2));
+  $$('[data-c=stripe]').forEach(e => e.textContent = eur(stripe, 2));
+  $$('[data-c=soft]').forEach(e => e.textContent = eur(soft, 2));
+  for (const k in tot){
+    document.querySelector(`[data-t=${k}]`).textContent = eur(tot[k], 2);
+    document.querySelector(`[data-y=${k}]`).textContent = eur(tot[k] * 12);
+  }
+  const rev = n * v, p0 = rev * C.plat[0], p1 = rev * C.plat[1];
+  document.getElementById('plat').textContent = `${eur(p0)}–${eur(p1)}`;
+  document.getElementById('save').textContent = `~${eur(Math.max(0, (p0 - tot.C) * 12))}–${eur(Math.max(0, (p1 - tot.C) * 12))}`;
+}
+['rN','rV'].forEach(id => document.getElementById(id).addEventListener('input', calcCosts));
+$$('.seg button').forEach(b => b.onclick = () => { bill = b.dataset.b; $$('.seg button').forEach(x => x.classList.toggle('on', x === b)); calcCosts() });
+calcCosts();
+
 let st = {}; try{ st = JSON.parse(localStorage.getItem('pcheck') || '{}') }catch(e){}
 $$('#check li').forEach((li, i) => {
   if (st[i]) li.classList.add('done');
